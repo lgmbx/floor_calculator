@@ -32,9 +32,15 @@ class _CalculatorPageState extends State<CalculatorPage> {
     return <Widget>[
       IconButton(
         icon: Icon(Icons.clear_all),
-        onPressed: _formKey.currentState.reset,
-      )
+        onPressed: _clear,
+      ),
     ];
+  }
+
+  void _clear() {
+    if (_formKey.currentState.toString() != null) {
+      _formKey.currentState.reset();
+    }
   }
 
   Form _buildFormInputText() {
@@ -110,6 +116,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
     return RaisedButton(
       child: Text('Calculate'),
       onPressed: _calculate,
+      textColor: Colors.white,
     );
   }
 
