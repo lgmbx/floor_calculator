@@ -18,6 +18,10 @@ class CalculatorController {
     floor.lenght = _parse(value);
   }
 
+  void setFloorPrice(String value) {
+    floor.price = _parse(value);
+  }
+
   void setRoomWidth(String value) {
     room.width = _parse(value);
   }
@@ -27,10 +31,11 @@ class CalculatorController {
   }
 
   ResultModel calculate() {
-    final result = ResultModel();
+    final result = new ResultModel();
     result.piecesByLenght = (room.lenght / floor.lenght).ceil();
     result.piecesByWidth = (room.width / floor.width).ceil();
     result.areaFloor = floor.lenght * floor.width;
+    result.floorPrice = floor.price;
     return result;
   }
 }

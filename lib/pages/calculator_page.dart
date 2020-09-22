@@ -15,7 +15,10 @@ class _CalculatorPageState extends State<CalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Floor Calculator')),
+      appBar: AppBar(
+        title: Text('Floor Calculator'),
+        actions: _clearAllTextButton(),
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
@@ -23,6 +26,15 @@ class _CalculatorPageState extends State<CalculatorPage> {
         ),
       ),
     );
+  }
+
+  List<Widget> _clearAllTextButton() {
+    return <Widget>[
+      IconButton(
+        icon: Icon(Icons.clear_all),
+        onPressed: _formKey.currentState.reset,
+      )
+    ];
   }
 
   Form _buildFormInputText() {
@@ -44,7 +56,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             onSaved: _controller.setRoomLenght,
           ),
           _buildVerticalSpace(),
-          _buildHeaderText('Tile area'),
+          _buildHeaderText('Floor area'),
           _buildVerticalSpace(),
           _buildNumberInputText(
             'Width (centimeters)',
@@ -56,9 +68,12 @@ class _CalculatorPageState extends State<CalculatorPage> {
             onSaved: _controller.setFloorLenght,
           ),
           _buildVerticalSpace(),
-          _buildNumberInputText('Price'),
+          _buildNumberInputText(
+            'Price by meter',
+            onSaved: _controller.setFloorPrice,
+          ),
           _buildVerticalSpace(),
-          _buildCalculateButton()
+          _buildCalculateButton(),
         ],
       ),
     );
