@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Floor Calculator',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.blueGrey,
         buttonTheme: ButtonThemeData(
           height: 52,
           textTheme: ButtonTextTheme.normal,

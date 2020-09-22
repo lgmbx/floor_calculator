@@ -56,6 +56,8 @@ class _CalculatorPageState extends State<CalculatorPage> {
             onSaved: _controller.setFloorLenght,
           ),
           _buildVerticalSpace(),
+          _buildNumberInputText('Price'),
+          _buildVerticalSpace(),
           _buildCalculateButton()
         ],
       ),
